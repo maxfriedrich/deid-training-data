@@ -18,7 +18,7 @@ install:
   - conda update -q conda
   - conda info -a
   - conda env create -q
-  - source activate ma
+  - source activate deid-training-data
   - conda list
   - python -m spacy download en
 script:
