@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+ma_path = os.path.dirname(os.path.dirname(__file__))
+if os.path.abspath(ma_path) not in sys.path:
+    sys.path.append(ma_path)
+
+from deid.env import env
+
+for t in ['test', 'train', 'validation']:
+    print(f'Converting {t} xmls...')
+    command = ' '.join(['python -m deid.tools.i2b2_xml_to_csv --check',
+                        f"{os.path.join(env.data_dir, t + '_xml')}",
+                        f"{os.path.join(env.data_dir, t)}"])
+
+    print(command)
+    os.system(command)

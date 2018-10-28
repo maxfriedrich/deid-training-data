@@ -1,0 +1,46 @@
+---
+experiment:
+  type: basic # or alternating
+  binary_classification: false
+  hipaa_only: false
+  model: lstm # or adversarial
+  embeddings: fasttext # or glove, elmo
+  train_set: train
+  validation_set: validation
+model_args:
+  hidden_size: # add options for multiple runs like this
+    choice:
+      - 64
+      - 128
+      - 256
+      # ...
+  num_hidden:
+    choice:
+      - 1
+      - 2
+  input_dropout:
+    choice:
+      - 0.
+      - 0.05
+      - 0.1
+      - 0.25
+      - 0.5
+  after_hidden_dropout: 0.5
+  recurrent_dropout: 0.25
+training:
+  optimizer: adam
+  optimizer_args:
+    clipnorm: 1.
+  train_epochs: 10
+  early_stopping_patience: 2
+  batch_size: 32
+  i2b2_evaluate_every: 2
+augment:
+  strategy: move_to_neighbor-50 # or additive_noise-0.1, etc.
+  augment_args:
+    augment_all: false
+    digit_strategy: random_digits
+    n_augmentations: 10
+    include_original: false
+test:
+  run_test: false

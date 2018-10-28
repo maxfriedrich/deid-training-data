@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -z "$DEID_CONFIG_DIR" ]; then
+    echo "Please set the DEID_CONFIG_DIR variable to the config directory."
+    exit 1
+fi
+
+TODO="${DEID_CONFIG_DIR}/todo"
+IN_PROGRESS="${DEID_CONFIG_DIR}/in_progress"
+DONE="${DEID_CONFIG_DIR}/done"
+EXECUTED=0
+STOP=0
+
+find "${TODO}" -type f -name '*.yaml' -print0 |
+while IFS= read -r -d '' f; do
+    config="$(basename $f)";
+    echo "Next config is ${f}, basename ${config}";
+    mv "${f}" "${IN_PROGRESS}";
+    python3 -m deid.experiment "${IN_PROGRESS}/${config}";
+    echo "Moving to done";
+    mv "${IN_PROGRESS}/${config}" "$DONE";
+    echo "OK";
+    EXECUTED=${EXECUTED}+1;
+done
+echo "Executed ${EXECUTED} configs."

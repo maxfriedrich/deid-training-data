@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<deIdi2b2>
+<TEXT><![CDATA[
+
+
+Record date: 2018-06-15
+
+Max Friedrich is a 25-year-old Computer science student living in Hamburg, Germany.
+
+]]></TEXT>
+<TAGS>
+<DATE id="P1" start="16" end="26" text="2018-06-15" TYPE="DATE" comment="" />
+<NAME id="P2" start="28" end="41" text="Max Friedrich" TYPE="PATIENT" comment="" />
+<AGE id="P3" start="47" end="49" text="25" TYPE="AGE" comment="" />
+<LOCATION id="P4" start="94" end="101" text="Hamburg" TYPE="CITY" comment="" />
+<LOCATION id="P5" start="103" end="110" text="Germany" TYPE="COUNTRY" comment="" />
+</TAGS>
+</deIdi2b2>

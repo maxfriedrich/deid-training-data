@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<deIdi2b2>
+<TEXT><![CDATA[
+
+
+zero one  two three fourFive
+
+]]></TEXT>
+<TAGS>
+<DATE id="P1" start="8" end="11" text="one" TYPE="DATE" comment="" />
+<AGE id="P2" start="12" end="16" text=" two" TYPE="AGE" comment="" />
+<DATE id="P3" start="23" end="27" text="four" TYPE="DATE" comment="" />
+</TAGS>
+</deIdi2b2>
