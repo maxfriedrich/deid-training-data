@@ -1,0 +1,28 @@
+# https://conda.io/docs/user-guide/tasks/use-conda-with-travis-ci.html
+
+sudo: required
+dist: trusty
+group: travis_latest
+language: python
+python:
+  - '3.6'
+git:
+  depth: false
+  lfs_skip_smudge: true
+before_install:
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+install:
+  - sudo apt-get update
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - conda env create -q
+  - source activate ma
+  - conda list
+  - python -m spacy download en
+script:
+  - nosetests --with-doctest
