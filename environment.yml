@@ -1,0 +1,33 @@
+name: deid-training-data
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.6
+- libgcc
+- pip
+- cython
+- jupyter
+- pathlib
+- numpy
+- scipy
+- pandas
+- matplotlib
+- beautifulsoup4
+- nose
+- h5py
+- spacy
+- tqdm
+- scikit-learn
+- lxml
+- pylint
+- mypy
+- msgpack-python
+- pip:
+  - keras==2.2.2
+  - tensorflow  # or tensorflow-gpu
+  - tensorflow-hub
+  - terminaltables
+  - pybind11
+  - -e ./dependencies/keras-contrib
+  - -e ./dependencies/fastText

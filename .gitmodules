@@ -1,0 +1,6 @@
+[submodule "dependencies/keras-contrib"]
+	path = dependencies/keras-contrib
+	url = git://github.com/keras-team/keras-contrib
+[submodule "dependencies/fastText"]
+	path = dependencies/fastText
+	url = git://github.com/facebookresearch/fastText.git
