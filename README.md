@@ -3,8 +3,23 @@
 [![Build Status](https://www.travis-ci.org/maxfriedrich/deid-training-data.svg?branch=master)](https://www.travis-ci.org/maxfriedrich/deid-training-data)
 
 This is the code for my [Master's thesis](https://www.inf.uni-hamburg.de/en/inst/ab/lt/teaching/theses/completed-theses/2018-ma-friedrich.pdf). It's about automatic transformations that can be applied to medical text data that…
+
 - allow training a de-identification model (i.e. finding all protected information in text)
 - do not allow attackers to infer any protected information.
+
+## Main Contribution
+
+An adversarial deep learning architecture that learns a private representation of medical text. The representation model is an LSTM model that adds Gaussian noise of a trainable scale to its inputs and outputs.
+
+<img alt="Adversarial architecture" src="architecture.png" style="width: 430px;">
+
+The representation fulfills two invariance criteria that are both enforced by binary classifier LSTM adversary models that receive sequence pairs as inputs.
+
+Left: Representations should be invariant to *any* protected information token being replaced with a neighbor in an embedding space (e.g. substituting a name or date).
+
+Right: Looking up the same token sequence multiple times should result in a representation that is randomly different by a high enough degree that it could be the representation of a neighboring sequence.
+
+<img alt="First adversary" src="adversary1.png" style="width: 430px">&nbsp;&nbsp;&nbsp;<img alt="Second adversary" src="adversary2.png" style="width: 430px">
 
 ## Installation
 
@@ -52,7 +67,7 @@ This is the code for my [Master's thesis](https://www.inf.uni-hamburg.de/en/inst
   
   - For **GloVe**, download [a set of pre-trained word vectors](https://github.com/stanfordnlp/GloVe#download-pre-trained-word-vectors) and put it into the resources directory. Adapt the path and dimension [here](deid/embeddings/glove.py) if you're not using the Wikipedia-pretrained 300d embeddings.
   
-  - For **ELMo**, you don't need to download anything. 
+  - For **ELMo**, you don't need to download anything.
 
 - Get the [i2b2 data](https://www.i2b2.org/NLP/DataSets/) and extract `training-PHI-Gold-Set1` into `train_xml`, `training-PHI-Gold-Set2` into `validation_xml`, and `testing-PHI-Gold-fixed` into a `test_xml` directory.
 
@@ -72,8 +87,8 @@ This is the code for my [Master's thesis](https://www.inf.uni-hamburg.de/en/inst
 
 - Create an embeddings cache, again depending on your choice(s) of embeddings:
 
-  - For **FastText**, this command writes all words from the train, test, and validation set to a pickle cache (5 minutes on my machine). 
-    
+  - For **FastText**, this command writes all words from the train, test, and validation set to a pickle cache (5 minutes on my machine).
+
     ```bash
     python -m deid.tools.embeddings --fasttext-cache
     ```
