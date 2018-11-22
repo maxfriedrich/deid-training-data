@@ -11,7 +11,7 @@ This is the code for my [Master's thesis](https://www.inf.uni-hamburg.de/en/inst
 
 An adversarial deep learning architecture that learns a private representation of medical text. The representation model is an LSTM model that adds Gaussian noise of a trainable scale to its inputs and outputs.
 
-<img alt="Adversarial architecture" src="architecture.png" style="width: 430px;">
+<img alt="Adversarial architecture" src="architecture.png" width="430">
 
 The representation fulfills two invariance criteria that are both enforced by binary classifier LSTM adversary models that receive sequence pairs as inputs.
 
@@ -19,7 +19,7 @@ Left: Representations should be invariant to *any* protected information token b
 
 Right: Looking up the same token sequence multiple times should result in a representation that is randomly different by a high enough degree that it could be the representation of a neighboring sequence.
 
-<img alt="First adversary" src="adversary1.png" style="width: 430px">&nbsp;&nbsp;&nbsp;<img alt="Second adversary" src="adversary2.png" style="width: 430px">
+<img alt="First adversary" src="adversary1.png" width="430">&nbsp;&nbsp;&nbsp;<img alt="Second adversary" src="adversary2.png" width="430">
 
 ## Installation
 
