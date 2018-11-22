@@ -2,7 +2,7 @@
 
 [![Build Status](https://www.travis-ci.org/maxfriedrich/deid-training-data.svg?branch=master)](https://www.travis-ci.org/maxfriedrich/deid-training-data)
 
-This is the code for my Master's thesis. It's about automatic transformations that can be applied to medical text data that…
+This is the code for my [Master's thesis](https://www.inf.uni-hamburg.de/en/inst/ab/lt/teaching/theses/completed-theses/2018-ma-friedrich.pdf). It's about automatic transformations that can be applied to medical text data that…
 - allow training a de-identification model (i.e. finding all protected information in text)
 - do not allow attackers to infer any protected information.
 
