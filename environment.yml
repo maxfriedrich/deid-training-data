@@ -9,14 +9,14 @@ dependencies:
 - cython
 - jupyter
 - pathlib
-- numpy
+- numpy==1.14.5
 - scipy
 - pandas
 - matplotlib
 - beautifulsoup4
 - nose
 - h5py
-- spacy
+- spacy==2.0.12
 - tqdm
 - scikit-learn
 - lxml
@@ -25,8 +25,8 @@ dependencies:
 - msgpack-python
 - pip:
   - keras==2.2.2
-  - tensorflow  # or tensorflow-gpu
-  - tensorflow-hub
+  - tensorflow==1.10.0  # or tensorflow-gpu
+  - tensorflow-hub==0.1.1
   - terminaltables
   - pybind11
   - -e ./dependencies/keras-contrib
