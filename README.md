@@ -2,8 +2,7 @@
 
 [![Build Status](https://www.travis-ci.org/maxfriedrich/deid-training-data.svg?branch=master)](https://www.travis-ci.org/maxfriedrich/deid-training-data)
 
-**Update 2019-08-11:** Our paper ["Adversarial Learning of Privacy-Preserving Text Representations for De-Identification of Medical Records
-"](https://www.aclweb.org/anthology/papers/P/P19/P19-1584/) was published at ACL 2019.
+**Update 2019-08-11:** Our paper ["Adversarial Learning of Privacy-Preserving Text Representations for De-Identification of Medical Records"](https://www.aclweb.org/anthology/papers/P/P19/P19-1584/) was published at ACL 2019.
 
 This is the code for my [Master's thesis](https://www.inf.uni-hamburg.de/en/inst/ab/lt/teaching/theses/completed-theses/2018-ma-friedrich.pdf). It's about automatic transformations that can be applied to medical text data that…
 
