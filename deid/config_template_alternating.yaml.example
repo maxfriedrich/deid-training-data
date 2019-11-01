@@ -1,0 +1,66 @@
+---
+experiment:
+  type: alternating
+  binary_classification: false
+  hipaa_only: false
+  model: adversarial
+  embeddings:
+    choice:
+      - fasttext
+      - glove
+  extra_features:
+    - case
+  train_set: train
+  validation_set: validation
+model_args:
+  representation_type: lstm
+  representation_size:
+    choice:
+      - 50
+      - 100
+      - 300
+  representation_args:
+    single_stddev: false
+  adversaries:
+    - discriminate-representations
+    - discriminate-representation-embedding-pair
+  adversary_args:
+    input_dropout: 0.0
+    lstm_size: 300
+    recurrent_dropout: 0.0
+    reverse_gradient: false
+  deidentifier_args:
+    hidden_size: 128
+    num_hidden: 2
+    input_dropout: 0.1
+    after_hidden_dropout: 0.5
+    recurrent_dropout: 0.5
+    use_crf: true
+training:
+  optimizer: nadam
+  optimizer_args:
+    clipnorm: 1.
+  pretrain_deidentifier_epochs: 20
+  pretrain_adversary_epochs: 20
+  train_epochs: 40
+  early_stopping_patience: 10
+  batch_size: 32
+  batch_size_compound: 0
+  i2b2_evaluate_every: 100
+  class_weight: balanced
+augment:
+  strategy:
+    choice:
+      - move_to_neighbor-5
+      - move_to_neighbor-10
+      - move_to_neighbor-20
+      - move_to_neighbor-50
+      - move_to_neighbor-100
+      - move_to_neighbor-200
+      - move_to_neighbor-500
+  augment_args:
+    n_augmentations: 10
+    augment_all: false
+    augment_max: 1
+test:
+  run_test: true
