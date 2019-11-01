@@ -99,7 +99,10 @@ class AdversarialModel:
             adversary_models.append(adversary.model)
             adversary_outputs.append(adversary.model(adversary.inputs))
             adversary.model.summary()
-        adversary_output = concatenate(adversary_outputs, axis=-1)
+        if len(adversary_outputs) > 1:
+            adversary_output = concatenate(adversary_outputs, axis=-1)
+        else:
+            adversary_output = adversary_outputs[0]
         adversary_output = Lambda(lambda x: K.mean(x, axis=-1, keepdims=True), name='adversary')(adversary_output)
 
         self.pretrain_adversary = Model([adv_embeddings, adv_fake_embeddings], adversary_output)
