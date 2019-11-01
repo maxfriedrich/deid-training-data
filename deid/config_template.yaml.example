@@ -1,6 +1,6 @@
 ---
 experiment:
-  type: basic # or alternating
+  type: basic # see config_template_alternating.yaml.example for alternating experiment
   binary_classification: false
   hipaa_only: false
   model: lstm # or adversarial
