@@ -1,6 +1,6 @@
 ---
 experiment:
-  type: basic # or alternating
+  type: basic # see config_template_alternating.yaml.example for alternating experiment
   binary_classification: false
   hipaa_only: false
   model: lstm # or adversarial
@@ -37,10 +37,10 @@ training:
   i2b2_evaluate_every: 2
 augment:
   strategy: move_to_neighbor-50 # or additive_noise-0.1, etc.
+  digit_strategy: random_digits
+  include_original: false
   augment_args:
     augment_all: false
-    digit_strategy: random_digits
     n_augmentations: 10
-    include_original: false
 test:
   run_test: false
