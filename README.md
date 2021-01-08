@@ -61,7 +61,7 @@ Right: Looking up the same token sequence multiple times should result in a repr
 
 - Decide with embeddings you want to use:
 
-  - For **FastText**, get a [fastText embeddings binary](https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki-news-300d-1M-subword.bin.zip) (4.5 GB download) as well as the [corresponding `.vec` file of precomputed embeddings](https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki-news-300d-1M-subword.vec.zip) (590 MB download) and put it them the resources directory. Adapt the path [here](deid/embeddings/fasttext.py) if necessary. Then convert the precomputed fastText embeddings to a `{word: ind}` dictionary and numpy matrix file:
+  - For **FastText**, get a [fastText embeddings binary](https://dl.fbaipublicfiles.com/fasttext/vectors-english/wiki-news-300d-1M-subword.bin.zip) (4.5 GB download) as well as the [corresponding `.vec` file of precomputed embeddings](https://dl.fbaipublicfiles.com/fasttext/vectors-english/wiki-news-300d-1M-subword.vec.zip) (590 MB download) and put it them the resources directory. Adapt the path [here](deid/embeddings/fasttext.py) if necessary. Then convert the precomputed fastText embeddings to a `{word: ind}` dictionary and numpy matrix file:
 
     ```bash
     python -m deid.tools.embeddings --fasttext-precomputed
